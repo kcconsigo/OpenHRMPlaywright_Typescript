@@ -1,0 +1,32 @@
+[
+  {
+    "firstName": "Robert James",
+    "middleName": "Chen",
+    "lastName": "Schneider",
+    "empID": "1207",
+    "nationality": [
+      "American",
+      "Canadian",
+      "Filipino"
+    ],
+    "maritalstatus": [
+      "Single",
+      "Married"
+    ]
+  },
+  {
+    "firstName": "Ronaldo",
+    "middleName": "Valdez",
+    "lastName": "Gibbs",
+    "empID": "2402",
+    "nationality": [
+      "American",
+      "Canadian",
+      "Filipino"
+    ],
+    "maritalstatus": [
+      "Single",
+      "Married"
+    ]
+  }
+]

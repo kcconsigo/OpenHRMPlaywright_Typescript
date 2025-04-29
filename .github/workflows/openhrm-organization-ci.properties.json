@@ -1,0 +1,13 @@
+{
+    "name": "Open Source HR Management Workflow using playwright typescript",
+    "run-name": "Open Source HR Management CI workflow using playwright typescript.",
+    "iconName": "example-icon",
+    "categories": [
+        "Go"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}

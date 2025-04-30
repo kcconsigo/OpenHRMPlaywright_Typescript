@@ -28,7 +28,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test @RegressionTesting loginUser.spec.js --headed
+      run: npx playwright test @RegressionTesting TC01_LoginUser.spec.ts --headed
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:

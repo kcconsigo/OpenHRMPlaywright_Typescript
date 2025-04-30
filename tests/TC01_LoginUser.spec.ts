@@ -5,7 +5,7 @@ import credentials from '../utils/credentials.json';
 test.beforeEach(async ({ page }) => {
   await page.goto('https://www.google.com/');
 });
-test(`Admin should be allow to enter valid credentials ${credentials.validCredentials.username}, ${credentials.validCredentials.password},`, async ({ page }) => {
+test(`Admin should be allow to enter valid credentials ${credentials.validCredentials.username}, ${credentials.validCredentials.password},`,{tag: '@RegressionTesting'}, async ({ page }) => {
   const loginuserpage = new LoginUserPage(page);
   await loginuserpage.gotoLogin();
   await loginuserpage.loginCredentials(credentials.validCredentials.username, credentials.validCredentials.password);
@@ -13,7 +13,7 @@ test(`Admin should be allow to enter valid credentials ${credentials.validCreden
   await loginuserpage.logoutItemBtn();
   await loginuserpage.logoutBtn();
 });
-test(`should not allow me to enter invalid credentials ${credentials.invalidCredentials.username}, ${credentials.invalidCredentials.password}`, async ({ page }) => {
+test(`should not allow me to enter invalid credentials ${credentials.invalidCredentials.username}, ${credentials.invalidCredentials.password}`,{tag: '@RegressionTesting'}, async ({ page }) => {
   const loginuserpage = new LoginUserPage(page);
   await loginuserpage.gotoLogin();
   await loginuserpage.loginCredentials(credentials.invalidCredentials.username, credentials.invalidCredentials.password);

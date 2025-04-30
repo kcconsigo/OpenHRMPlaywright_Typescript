@@ -5,13 +5,13 @@ import credentials from '../utils/credentials.json';
 
 
 test(`should allow me to select Admin details ${credentials.validCredentials.username}, ${credentials.validCredentials.password}`, async ({ page }) => {
-    const loginuserpage = new LoginUserPage(page);
-    await loginuserpage.gotoLogin();
-    await loginuserpage.loginCredentials(credentials.validCredentials.username, credentials.validCredentials.password);
-    await loginuserpage.loginBtn();
-    const adminuserdashboardpage = new AdminUserDashboardPage(page);
-    await adminuserdashboardpage.AdminTabPage();
-    await adminuserdashboardpage.admindetailsRecords();
-    await loginuserpage.logoutItemBtn();
-    await loginuserpage.logoutBtn();
-  });
+  const loginuserpage = new LoginUserPage(page);
+  await loginuserpage.gotoLogin();
+  await loginuserpage.loginCredentials(credentials.validCredentials.username, credentials.validCredentials.password);
+  await loginuserpage.loginBtn();
+  const adminuserdashboardpage = new AdminUserDashboardPage(page);
+  await adminuserdashboardpage.AdminTabPage();
+  await adminuserdashboardpage.admindetailsRecords();
+  await loginuserpage.logoutItemBtn();
+  await loginuserpage.logoutBtn();
+});

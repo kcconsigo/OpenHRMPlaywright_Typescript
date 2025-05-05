@@ -22,3 +22,4 @@ export class AdminUserDashboardPage {
     }
 
 }
+module.exports = AdminUserDashboardPage;

@@ -43,3 +43,4 @@ export class LoginUserPage {
         return await expect(this.error_msg).toHaveText('Invalid credentials');
     }
 }
+module.exports = LoginUserPage;

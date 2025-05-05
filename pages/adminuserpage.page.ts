@@ -73,3 +73,4 @@ export class AdminUserPage {
 
   }
 }
+module.exports = AdminUserPage;

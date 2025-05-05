@@ -51,14 +51,14 @@ export class PIMEditUserPage {
         await this.page.locator(pimlocators.EmpFirstName).fill(editfirstName);
         await this.page.locator(pimlocators.EmpMidName).fill(editmiddleName);
         await this.page.locator(pimlocators.EmpLastName).fill(editlastName);
-        await this.page.locator(pimlocators.EmpID).nth(4).fill(editempID);
+        await this.page.locator(pimlocators.EmpID).fill(editempID);
         await this.page.locator(pimlocators.EmpNationalityField).nth(0).click();
         await this.page.getByRole('option', { name: editnationality }).click();
         await this.page.locator(pimlocators.EmpMaritalStatusField).nth(1).click();
         await this.page.getByRole('option', { name: editmaritalstatus }).click();
         await this.page.locator(pimlocators.EmpMaritalStatusField).nth(1).click();
         await this.page.getByRole('option', { name: editmaritalstatus }).click();
-        await this.page.locator('div').filter({ hasText: editgender }).nth(2).click();
+        await this.page.locator(pimlocators.EmpID).filter({ hasText: editgender });
         await expect(async () => {
             await this.page.locator(pimlocators.EmpInfoSave).click({ timeout: 1000 });
         }).toPass();

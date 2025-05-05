@@ -35,7 +35,7 @@ export class PIMUserPage {
         await this.page.locator(pimlocators.EmpFirstName).fill(firstName);
         await this.page.locator(pimlocators.EmpMidName).fill(middleName);
         await this.page.locator(pimlocators.EmpLastName).fill(lastName);
-        await this.page.locator(pimlocators.EmpID).nth(4).fill(empID);
+        await this.page.locator(pimlocators.EmpID).fill(empID);
         await expect(async () => {
             await this.page.locator(pimlocators.EmpbuttonSave).click({ timeout: 1000 });
         }).toPass();
@@ -44,7 +44,7 @@ export class PIMUserPage {
         await this.page.getByRole('option', { name: nationality }).click();
         await this.page.locator(pimlocators.EmpMaritalStatusField).nth(1).click();
         await this.page.getByRole('option', { name: maritalstatus }).click();
-        await this.page.locator(pimlocators.EmpInfoSave).nth(1).click();
+        await this.page.locator(pimlocators.EmpInfoSave).click();
     }
     async employeeListlandingTab(firstName: string) {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();

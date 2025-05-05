@@ -1,0 +1,40 @@
+[
+    {
+        "editfirstName": "Robert James",
+        "editmiddleName": "Chen",
+        "editlastName": "Schneider",
+        "editempID": "1102",
+        "editnationality": [
+            "Australian",
+            "German",
+            "Filipino"
+        ],
+        "editmaritalstatus": [
+            "Single",
+            "Married"
+        ],
+        "editgender": [
+            "Male",
+            "Female"
+        ]
+    },
+    {
+        "editfirstName": "Ronaldo",
+        "editmiddleName": "Valdez",
+        "editlastName": "Gibbs",
+        "editempID": "1402",
+        "editnationality": [
+            "Australian",
+            "German",
+            "Filipino"
+        ],
+        "editmaritalstatus": [
+            "Single",
+            "Married"
+        ],
+        "editgender": [
+            "Male",
+            "Female"
+        ]
+    }
+]

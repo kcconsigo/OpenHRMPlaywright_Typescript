@@ -4,7 +4,7 @@ import { AdminUserDashboardPage } from '../pages/adminuserdashboardpage.page';
 import credentials from '../utils/credentials.json';
 
 
-test(`should allow me to select Admin details ${credentials.validCredentials.username}, ${credentials.validCredentials.password}`, async ({ page }) => {
+test(`should allow me to select Admin details ${credentials.validCredentials.username}, ${credentials.validCredentials.password}`,{tag: '@SanityTesting'}, async ({ page }) => {
   const loginuserpage = new LoginUserPage(page);
   await loginuserpage.gotoLogin();
   await loginuserpage.loginCredentials(credentials.validCredentials.username, credentials.validCredentials.password);

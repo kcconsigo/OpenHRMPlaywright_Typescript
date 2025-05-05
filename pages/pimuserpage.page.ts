@@ -64,4 +64,3 @@ export class PIMUserPage {
         await this.page.locator(pimlocators.editEmplistbtn).nth(3).click();
     }
 }
-module.exports = PIMUserPage;

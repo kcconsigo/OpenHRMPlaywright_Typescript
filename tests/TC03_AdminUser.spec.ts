@@ -5,7 +5,7 @@ import credentials from '../utils/credentials.json';
 import adminuser from '../utils/adminuser.json';
 
 for (const admindetailspage of adminuser) {
-    test(`should allow me to create Admin ${credentials.validCredentials.username}, ${credentials.validCredentials.password}, ${admindetailspage.EmpName}, ${admindetailspage.UserName},${admindetailspage.Password},${admindetailspage.ConfirmPassword}`, async ({ page }) => {
+    test(`should allow me to create Admin ${credentials.validCredentials.username}, ${credentials.validCredentials.password}, ${admindetailspage.EmpName}, ${admindetailspage.UserName},${admindetailspage.Password},${admindetailspage.ConfirmPassword}`,{tag: '@SmokeTesting'}, async ({ page }) => {
         const loginuserpage = new LoginUserPage(page);
         await loginuserpage.gotoLogin();
         await loginuserpage.loginCredentials(credentials.validCredentials.username, credentials.validCredentials.password);

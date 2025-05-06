@@ -11,8 +11,6 @@ export class PIMUserPage {
     readonly EmpLastName: Locator
     readonly EmpID: Locator
     readonly EmpbuttonSave: Locator
-    readonly EmpNationalityField: Locator
-    readonly EmpMaritalStatusField: Locator
     readonly EmpInfoSave: Locator
     readonly listEmpNavTab: Locator
     readonly listEmployeeName: Locator
@@ -39,10 +37,11 @@ export class PIMUserPage {
         await expect(async () => {
             await this.page.locator(pimlocators.EmpbuttonSave).click({ timeout: 1000 });
         }).toPass();
-        await expect(this.successfullyMsg).toBeVisible();
-        await this.page.locator(pimlocators.EmpNationalityField).nth(0).click();
+        // await expect(this.successfullyMsg).toBeVisible();
+        await expect(this.page.getByText('Successfully Saved')).toHaveText('Successfully Saved');
+        await this.page.getByText('-- Select --').first().click();
         await this.page.getByRole('option', { name: nationality }).click();
-        await this.page.locator(pimlocators.EmpMaritalStatusField).nth(1).click();
+        await this.page.getByText('-- Select --').first().click();
         await this.page.getByRole('option', { name: maritalstatus }).click();
         await this.page.locator(pimlocators.EmpInfoSave).click();
     }

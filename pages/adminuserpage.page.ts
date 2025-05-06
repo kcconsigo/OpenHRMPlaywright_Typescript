@@ -26,7 +26,7 @@ export class AdminUserPage {
     this.page = page;
     this.userRoleField = page.getByRole('option', { name: 'Admin' });
     this.userStatusField = page.getByRole('option', { name: 'Enabled' });
-    this.successfullyMsg = page.getByText('SuccessSuccessfully Saved×');
+    this.successfullyMsg = page.getByText('Successfully Saved');
     this.successfullyEditInfoMsg = page.getByText('SuccessSuccessfully Updated×');
     this.successfullyDeletedUser = page.getByText('SuccessSuccessfully Deleted×');
     this.NorecordsFound = page.getByText('InfoNo Records Found×');
@@ -52,7 +52,6 @@ export class AdminUserPage {
       }
       return i;
     }
-    //  await this.userEmpNameSelect.getByRole('option', { name: EmpName }).click();
     await this.page.locator(adminlocators.userEmpNameSelect).getByRole('option', { name: EmpName }).click()
     await this.page.locator(adminlocators.username).nth(1).fill(UserName);
     await this.page.locator(adminlocators.password).nth(2).fill(Password);
@@ -61,7 +60,7 @@ export class AdminUserPage {
   async clickSavebtn() {
     await expect(async () => {
       await this.page.locator(adminlocators.submitBtbnSave).nth(0).click();
-      console.log(await this.successfullyMsg.textContent());
+      await expect(this.page.getByText('Successfully Saved')).toHaveText('Successfully Saved');
     }).toPass();
   }
 

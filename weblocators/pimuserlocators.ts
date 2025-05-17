@@ -8,11 +8,16 @@ export const pimlocators = {
     EmpID: "(//input[@class='oxd-input oxd-input--active'])[2]",
     EditGender: "input[type=radio]:nth-child(1):nth-child(1)",
     EmpbuttonSave: "//button[@type='submit']",
-    EmpInfoSave: "(//button[@type='submit'])[1]",
+    EmpInfoSave: "(//button[@type='submit'][normalize-space()='Save'])[1]",
     listEmpNavTab: ".oxd-topbar-body-nav-tab",
     listEmployeeName: ".oxd-autocomplete-text-input",
     listEmployeeNameSelect: ".oxd-autocomplete-dropdown",
-    listEmpSearchbtn: "//button[@type='submit']",
-    editEmplistbtn: "//div[@class='orangehrm-container']//button[@type='button']",
-    successfullyMsg: "//div[@id='oxd-toaster_1']"
+    listEmpSearchbtn: "//button[normalize-space()='Search']",
+    editEmplistbtn: "//div[@class='orangehrm-container']//button[1]",
+    successfullyMsg: "//div[@id='oxd-toaster_1']",
+    deleteButton: ".oxd-icon-button.oxd-table-cell-action-space",
+    deleteDialogBox: "div[role='document']",
+    deleteYesButton: "//button[normalize-space()='Yes, Delete']",
+    deleteNoButton: "//button[normalize-space()='No, Cancel']",
+    deleteMsg: "//div[@id='oxd-toaster_1']"
 }

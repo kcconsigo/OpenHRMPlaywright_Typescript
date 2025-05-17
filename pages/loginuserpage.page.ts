@@ -26,7 +26,7 @@ export class LoginUserPage {
         await expect(this.page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
         // await browser.close();
     }
-    async loginCredentials(username, password) {
+    async loginCredentials(username: string, password: string) {
         await this.userName.fill(username);
         await this.userPassword.fill(password);
     }

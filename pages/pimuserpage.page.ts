@@ -52,6 +52,7 @@ export class PIMUserPage {
             .nth(0)
             .fill(firstName);
         const Empnames: Locator = this.page.locator(pimlocators.listEmployeeNameSelect).getByRole('option', { name: firstName });
+        await Empnames.waitFor({ state: 'visible' });
         for (let i = 0; i < await Empnames.count(); i++) {
             if (await Empnames.isVisible()) {
                 await Empnames.nth(i).click();

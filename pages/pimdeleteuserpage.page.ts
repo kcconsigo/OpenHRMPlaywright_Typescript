@@ -1,6 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { pimlocators } from "../weblocators/pimuserlocators";
-export class PIMEditUserPage {
+
+export class PIMDeleteUserPage {
     readonly page: Page;
     readonly pimmenu: Locator
     readonly addempTab: Locator
@@ -16,12 +17,16 @@ export class PIMEditUserPage {
     readonly listEmpSearchbtn: Locator
     readonly editEmplistbtn: Locator
     readonly successfullyMsg: Locator
+    readonly deleteButton: Locator
+    readonly deleteYesButton: Locator
+    readonly deleteNoButton: Locator
+    readonly deleteMsg: Locator
 
     constructor(page: Page) {
         this.page = page;
-        this.successfullyMsg = page.getByText('Successfully Updated');
+        this.deleteMsg = page.getByText('Successfully Deleted');
     }
-    async editPimTab() {
+    async deletedPimTab() {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();
     }
     async employeeListlandingTab(editfirstName: string) {
@@ -30,7 +35,7 @@ export class PIMEditUserPage {
             .fill(editfirstName);
         const Empnames: Locator = this.page.locator(pimlocators.listEmployeeNameSelect).getByRole('option', { name: editfirstName });
         await Empnames.waitFor({ state: 'visible' });
-        for (let i = 0; i < await Empnames.count(); i++) {
+        for (let i = 1; i < await Empnames.count(); i++) {
             if (await Empnames.isVisible()) {
                 await Empnames.nth(i).click();
                 return Empnames;
@@ -45,22 +50,14 @@ export class PIMEditUserPage {
         for (const admin of rowList) {
             console.log(await admin.textContent());
         }
+        await this.page.locator(pimlocators.deleteButton).nth(1).click();
+        await this.page.locator(pimlocators.deleteYesButton).click();
+        await expect(this.page.getByText('Successfully Deleted')).toHaveText('Successfully Deleted');
+        
     }
-    async addEmployeeDetails(editfirstName: string, editmiddleName: string, editlastName: string, editempID: string, editnationality: string, editmaritalstatus: string, editgender: string) {
-        await this.page.locator(pimlocators.editEmplistbtn).nth(0).click();
-        await this.page.locator(pimlocators.EmpFirstName).fill(editfirstName);
-        await this.page.locator(pimlocators.EmpMidName).fill(editmiddleName);
-        await this.page.locator(pimlocators.EmpLastName).fill(editlastName);
-        await this.page.locator(pimlocators.EmpID).fill(editempID);
-        await this.page.locator('.oxd-select-text').first().click();
-        await this.page.getByRole('option', { name: editnationality }).click();
-        await this.page.locator('div:nth-child(2) > .oxd-input-group > div:nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click();
-        await this.page.getByRole('option', { name: editmaritalstatus }).click();
-        await this.page.locator('div').filter({ hasText: /^Employee IdOther Id$/ }).getByRole('textbox').first().fill(editempID);
-        await this.page.locator('div').filter({ hasText: editgender }).nth(2).click();
-        await expect(async () => {
-            await this.page.locator(pimlocators.EmpInfoSave).click({ timeout: 1000 });
-        }).toPass();
-        await expect(this.page.getByText('Successfully Updated')).toHaveText('Successfully Updated');
-    }
+    // async deletePimEmpployees(){
+    //     await this.page.locator(pimlocators.deleteButton).nth(1).click();
+    //     await this.page.locator(pimlocators.deleteYesButton).click();
+    //     await expect(this.page.getByText('Successfully Deleted')).toHaveText('Successfully Deleted');
+    // }
 }

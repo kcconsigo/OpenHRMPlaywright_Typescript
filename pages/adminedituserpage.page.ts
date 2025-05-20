@@ -1,8 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { adminlocators } from '../weblocators/adminuserlocators';
 
-
-
 export class AdminEditUserPage {
   readonly page: Page;
   readonly adminmenu: Locator;

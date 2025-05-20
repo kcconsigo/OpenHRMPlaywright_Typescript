@@ -1,14 +1,14 @@
 [
     {
-        "EmpName": "Robert James Chen Schneider",
-        "UserName": "Dranreb",
-        "Password": "D3vT3$t3rSD3TR0l305",
-        "ConfirmPassword": "D3vT3$t3rSD3TR0l305"
+        "EditEmpName": "Robert James Chen Schneider",
+        "EditUserName": "Dranreb",
+        "EditPassword": "D3vT3$t3rSD3TR0l305",
+        "EditConfirmPassword": "D3vT3$t3rSD3TR0l305"
     },
     {
-        "EmpName": "Ronaldo Valdez Gibbs",
-        "UserName": "Gabbi Garcia",
-        "Password": "M@derfucker@$$h0l3",
-        "ConfirmPassword": "M@derfucker@$$h0l3"
+        "EditEmpName": "Ronaldo Valdez Gibbs",
+        "EditUserName": "Gabbi Garcia",
+        "EditPassword": "M@derfucker@$$h0l3",
+        "EditConfirmPassword": "M@derfucker@$$h0l3"
     }
 ]

@@ -13,6 +13,8 @@ export class AdminEditUserPage {
   readonly userEmpNameSelect: Locator;
   readonly username: Locator;
   readonly password: Locator;
+  readonly listEmpSearchbtn: Locator;
+  readonly listEmployeeNameSelect: Locator;
   readonly comfirmPassword: Locator;
   readonly submitBtbnSave: Locator;
   readonly userRoleField: Locator;
@@ -34,8 +36,29 @@ export class AdminEditUserPage {
   async AdminTab() {
     await this.page.locator(adminlocators.adminmenu).nth(0).click();
   }
-  async AdminUserListlandingTab(editfirstName: string) {
-        
+  async AdminUserListlandingTab(EditEmpName: string) {
+    await this.page.locator(adminlocators.userEmpName).getByPlaceholder('Type for hints...')
+    .nth(0)
+    .fill(EditEmpName);
+            const Empnames: Locator = this.page.locator(adminlocators.listEmployeeNameSelect).getByRole('option', { name: EditEmpName });
+            await Empnames.waitFor({ state: 'visible' });
+            for (let i = 0; i < await Empnames.count(); i++) {
+                if (await Empnames.isVisible()) {
+                    await Empnames.nth(i).click();
+                    return Empnames;
+                }
+                return i;
+            }
+            await expect(async () => {
+                await this.page.locator(adminlocators.listEmpSearchbtn).click({ timeout: 1000 });
+            }).toPass();
+                    await this.page.mouse.wheel(0, 100);
+        await this.page.mouse.move(20, 40);
+        await this.page.locator('.oxd-table-row > div').first().click();
+        let rowList = await this.page.locator('.oxd-table-body > div.oxd-table-card').all();
+        for (const admin of rowList) {
+            console.log(await admin.textContent());
+        }
   }
 
 }

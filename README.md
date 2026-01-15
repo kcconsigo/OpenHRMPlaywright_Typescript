@@ -4,6 +4,7 @@ Project Name: Basic OpenHRMPlaywright Automation suite</h1>
 
 <h3> This automation framework covers features such as: 
   Login user with valid and invalid credentials.
+  
   Create, Edit and Delete PIM User, and its validation that runs on QA Environment (It can also be run on DEV Environment)</h3>
 
 # <b> </b>Framework and Tools used: </b>

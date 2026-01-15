@@ -9,4 +9,6 @@ export const adminlocators = {
     password: ".oxd-input.oxd-input",
     comfirmPassword: ".oxd-input.oxd-input",
     submitBtbnSave: "//button[@type='submit']", 
+    listEmpSearchbtn: "//button[normalize-space()='Search']",
+    listEmployeeNameSelect: ".oxd-autocomplete-dropdown"
 }

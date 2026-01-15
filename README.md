@@ -35,7 +35,7 @@ npx playwright install --with-deps
 npx playwright --version
 
 # Running codegen and web locators:
-npx playwright codegen demo.playwright.dev/todomvc
+npx playwright codegen 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
 
 # To download ortoni report
 npm install -D ortoni-report  

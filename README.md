@@ -46,6 +46,7 @@ npm install -D ortoni-report
 # Configured Test Management Envi for QA Envi
 
 - Create global Envi Setup in javascript file
+
 npm install dotenv --save
 
 ![image](https://github.com/user-attachments/assets/5f8271c6-c99e-46c8-827a-a41ee2401850)

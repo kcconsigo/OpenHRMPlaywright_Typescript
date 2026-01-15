@@ -26,7 +26,7 @@ npx playwright test --headed
 
 npx playwright test @RegressionTesting TC01_LoginUser.spec.ts --headed
 
-npx playwright test TC02_PimDeleteUser.spec.ts --headed 
+npx playwright test TC02_PimUser.spec.ts --headed 
 
 npm install -D @playwright/test@latest
 # Also download new browser binaries and their dependencies:

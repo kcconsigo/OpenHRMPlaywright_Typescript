@@ -40,8 +40,9 @@ npx playwright codegen 'https://opensource-demo.orangehrmlive.com/web/index.php/
 # To download ortoni report
 npm install -D ortoni-report  
 
-# Output and Result as per regression test automation testing
-![image](https://github.com/user-attachments/assets/2a76e1b8-826f-45df-825d-d570a59a0a3c)
+# Output and Result as per automation testing
+<img width="1891" height="903" alt="image" src="https://github.com/user-attachments/assets/583da971-5030-4259-9a18-c24723bee672" />
+
 
 # Configured Test Management Envi for QA Envi
 

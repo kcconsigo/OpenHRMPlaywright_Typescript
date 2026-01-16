@@ -3,7 +3,7 @@
     "firstName": "Robert James",
     "middleName": "Chen",
     "lastName": "Schneider",
-    "empID": "1207",
+    "empID": 1207,
     "nationality": [
       "American",
       "Canadian",
@@ -18,7 +18,7 @@
     "firstName": "Ronaldo",
     "middleName": "Valdez",
     "lastName": "Gibbs",
-    "empID": "2402",
+    "empID": 2402,
     "nationality": [
       "American",
       "Canadian",

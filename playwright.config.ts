@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { OrtoniReportConfig } from "ortoni-report";
 
 /**
  * Read environment variables from file.
@@ -12,6 +13,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  globalSetup: 'utils/globalEnviSetup.js',
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -22,8 +24,12 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+    reporter: [["line"],["json", { outputFile: 'jsonReports/jsonReport.json' }],
+  ["junit", { outputFile: 'xmlnReports/xmlReport.xml' }],['html', { outputFolder: 'my-report' }], ['dot'], ["ortoni-report",{
+    projectname:"Open HRM Web Application",
+    AutorName:"Kclyn C.Cabelin",
+    testType:"Automation Testing"
+  }]],
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',

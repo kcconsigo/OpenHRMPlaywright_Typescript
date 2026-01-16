@@ -24,8 +24,7 @@ export class PIMDeleteUserPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.deleteMsg = page.getByText('Successfully Deleted');
-        
+        this.deleteMsg = page.getByText('Successfully Deleted');     
     }
     async deletedPimTab() {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();
@@ -36,7 +35,7 @@ export class PIMDeleteUserPage {
             .fill(editfirstName);
         const Empnames: Locator = this.page.locator(pimlocators.listEmployeeNameSelect).getByRole('option', { name: editfirstName });
         await Empnames.waitFor({ state: 'visible' });
-        for (let i = 1; i < await Empnames.count(); i++) {
+        for (let i = 0; i < await Empnames.count(); i++) {
             if (await Empnames.isVisible()) {
                 await Empnames.nth(i).click();
                 return Empnames;

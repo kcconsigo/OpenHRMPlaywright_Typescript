@@ -46,17 +46,17 @@ export class PIMEditUserPage {
             console.log(await admin.textContent());
         }
     }
-    async addEmployeeDetails(editfirstName: string, editmiddleName: string, editlastName: string, editempID: string, editnationality: string, editmaritalstatus: string, editgender: string) {
+    async addEmployeeDetails(editfirstName: string, editmiddleName: string, editlastName: string, editempID: number, editnationality: string, editmaritalstatus: string, editgender: string) {
         await this.page.locator(pimlocators.editEmplistbtn).nth(0).click();
         await this.page.locator(pimlocators.EmpFirstName).fill(editfirstName);
         await this.page.locator(pimlocators.EmpMidName).fill(editmiddleName);
         await this.page.locator(pimlocators.EmpLastName).fill(editlastName);
-        await this.page.locator(pimlocators.EmpID).fill(editempID);
+        await this.page.locator(pimlocators.EmpID).fill(String(editempID));
         await this.page.locator('.oxd-select-text').first().click();
         await this.page.getByRole('option', { name: editnationality }).click();
         await this.page.locator('div:nth-child(2) > .oxd-input-group > div:nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click();
         await this.page.getByRole('option', { name: editmaritalstatus }).click();
-        await this.page.locator('div').filter({ hasText: /^Employee IdOther Id$/ }).getByRole('textbox').first().fill(editempID);
+        await this.page.locator('div').filter({ hasText: /^Employee IdOther Id$/ }).getByRole('textbox').first().fill(String(editempID));
         await this.page.locator('div').filter({ hasText: editgender }).nth(2).click();
         await expect(async () => {
             await this.page.locator(pimlocators.EmpInfoSave).click({ timeout: 1000 });

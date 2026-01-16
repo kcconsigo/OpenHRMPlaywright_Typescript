@@ -29,11 +29,11 @@ export class PIMUserPage {
     async addEmpTab() {
         await this.page.locator(pimlocators.addempTab).nth(2).click();
     }
-    async addEmployeeDetails(firstName: string, middleName: string, lastName: string, empID: string, nationality: string, maritalstatus: string) {
+    async addEmployeeDetails(firstName: string, middleName: string, lastName: string, empID: number, nationality: string, maritalstatus: string) {
         await this.page.locator(pimlocators.EmpFirstName).fill(firstName);
         await this.page.locator(pimlocators.EmpMidName).fill(middleName);
         await this.page.locator(pimlocators.EmpLastName).fill(lastName);
-        await this.page.locator(pimlocators.EmpID).fill(empID);
+        await this.page.locator(pimlocators.EmpID).fill(String(empID));
         await expect(async () => {
             await this.page.locator(pimlocators.EmpbuttonSave).click({ timeout: 1000 });
         }).toPass();

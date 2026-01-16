@@ -19,12 +19,8 @@ export class LoginUserPage {
         this.error_msg = page.getByRole('alert').locator('div').filter({ hasText: 'Invalid credentials' });
     }
     async gotoLogin() {
-        // const browser = await chromium.launch();
-        // const context = await browser.newContext();
-        // const page = await context.newPage();
         await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
         await expect(this.page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-        // await browser.close();
     }
     async loginCredentials(username: string, password: string) {
         await this.userName.fill(username);
@@ -40,6 +36,6 @@ export class LoginUserPage {
         await this.logoutButton.click({ timeout: 3000 });
     }
     async verifyerr_msg() {
-        return await expect(this.error_msg).toHaveText('Invalid credentials');
+        return await expect(this.error_msg.getByText('Invalid credentials')).toBeVisible();
     }
 }

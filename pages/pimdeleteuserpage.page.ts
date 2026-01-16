@@ -25,6 +25,7 @@ export class PIMDeleteUserPage {
     constructor(page: Page) {
         this.page = page;
         this.deleteMsg = page.getByText('Successfully Deleted');
+        
     }
     async deletedPimTab() {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();

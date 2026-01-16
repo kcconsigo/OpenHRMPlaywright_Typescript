@@ -3,7 +3,7 @@ import { admindashboardlocators } from '../weblocators/adminuserdetailslocators'
 
 export class AdminUserDashboardPage {
     readonly page: Page;
-    readonly adminmenu: Locator;
+    readonly adminmenu!: Locator;
 
     constructor(page: Page) {
         this.page = page;

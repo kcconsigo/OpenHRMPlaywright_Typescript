@@ -5,16 +5,16 @@ import { adminlocators } from '../weblocators/adminuserlocators';
 
 export class AdminUserPage {
   readonly page: Page;
-  readonly adminmenu: Locator;
-  readonly empAddButton: Locator;
-  readonly userRoleSelectOptions: Locator;
-  readonly userStatus: Locator;
-  readonly userEmpName: Locator;
-  readonly userEmpNameSelect: Locator;
-  readonly username: Locator;
-  readonly password: Locator;
-  readonly comfirmPassword: Locator;
-  readonly submitBtbnSave: Locator;
+  readonly adminmenu!: Locator;
+  readonly empAddButton!: Locator;
+  readonly userRoleSelectOptions!: Locator;
+  readonly userStatus!: Locator;
+  readonly userEmpName!: Locator;
+  readonly userEmpNameSelect!: Locator;
+  readonly username!: Locator;
+  readonly password!: Locator;
+  readonly comfirmPassword!: Locator;
+  readonly submitBtbnSave!: Locator;
   readonly userRoleField: Locator;
   readonly userStatusField: Locator;
   readonly successfullyMsg: Locator;
@@ -27,8 +27,8 @@ export class AdminUserPage {
     this.userRoleField = page.getByRole('option', { name: 'Admin' });
     this.userStatusField = page.getByRole('option', { name: 'Enabled' });
     this.successfullyMsg = page.getByText('Successfully Saved');
-    this.successfullyEditInfoMsg = page.getByText('SuccessSuccessfully Updated×');
-    this.successfullyDeletedUser = page.getByText('SuccessSuccessfully Deleted×');
+    this.successfullyEditInfoMsg = page.getByText('SuccessSuccessfully Updated');
+    this.successfullyDeletedUser = page.getByText('SuccessSuccessfully Deleted');
     this.NorecordsFound = page.getByText('InfoNo Records Found×');
   }
   async AdminTab() {

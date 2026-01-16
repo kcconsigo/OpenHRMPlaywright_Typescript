@@ -42,7 +42,7 @@ npm install -D ortoni-report
 
 # Output and Result as per automation testing
 
-<<img width="1899" height="908" alt="image" src="https://github.com/user-attachments/assets/8d78751f-aab5-415f-9f83-77680b3b1af0" />
+<img width="1899" height="908" alt="image" src="https://github.com/user-attachments/assets/8d78751f-aab5-415f-9f83-77680b3b1af0" />
  
 
 

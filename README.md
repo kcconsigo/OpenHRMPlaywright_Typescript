@@ -41,7 +41,9 @@ npx playwright codegen 'https://opensource-demo.orangehrmlive.com/web/index.php/
 npm install -D ortoni-report  
 
 # Output and Result as per automation testing
-<img width="1891" height="903" alt="image" src="https://github.com/user-attachments/assets/583da971-5030-4259-9a18-c24723bee672" />
+
+<<img width="1899" height="908" alt="image" src="https://github.com/user-attachments/assets/8d78751f-aab5-415f-9f83-77680b3b1af0" />
+ 
 
 
 # Configured Test Management Envi for QA Envi

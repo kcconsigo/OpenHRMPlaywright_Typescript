@@ -3,7 +3,7 @@
         "editfirstName": "Robert James",
         "editmiddleName": "Chen",
         "editlastName": "Schneider",
-        "editempID": "1102",
+        "editempID": 1102,
         "editnationality": [
             "Australian",
             "German",
@@ -22,7 +22,7 @@
         "editfirstName": "Ronaldo",
         "editmiddleName": "Valdez",
         "editlastName": "Gibbs",
-        "editempID": "2442",
+        "editempID": 2442,
         "editnationality": [
             "Australian",
             "German",

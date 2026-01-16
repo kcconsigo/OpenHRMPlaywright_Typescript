@@ -16,7 +16,9 @@ Project Name: Basic OpenHRMPlaywright Automation suite</h1>
 git clone https://github.com/kcconsigo/OpenHRMPlaywright_Typescript.git
 
 # Installing Playwright 
-npm init playwright@latest
+
+npm init playwright@latest | npm install -D @playwright/test@latest
+
 # Run Playwright test automation  
 npx playwright test
 
@@ -28,7 +30,6 @@ npx playwright test @RegressionTesting TC01_LoginUser.spec.ts --headed
 
 npx playwright test TC02_PimUser.spec.ts --headed 
 
-npm install -D @playwright/test@latest
 # Also download new browser binaries and their dependencies:
 npx playwright install --with-deps
 

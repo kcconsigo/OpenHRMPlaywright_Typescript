@@ -16,7 +16,6 @@ test(`Admin should allow to delete pim users ${deletepimuser.editfirstName}`, as
     const pimdeleteuserpage = new PIMDeleteUserPage(page);
     await pimdeleteuserpage.deletedPimTab();
     await pimdeleteuserpage.employeeListlandingTab(deletepimuser.editfirstName);
-    // await pimdeleteuserpage.deletePimEmpployees();
     await loginuserpage.logoutItemBtn();
     await loginuserpage.logoutBtn();
 });

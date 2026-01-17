@@ -3,23 +3,6 @@ import { pimlocators } from "../weblocators/pimuserlocators";
 
 export class PIMDeleteUserPage {
     readonly page: Page;
-    readonly pimmenu!: Locator;
-    readonly addempTab!: Locator;
-    readonly EmpFirstName!: Locator;
-    readonly EmpMidName!: Locator;
-    readonly EmpLastName!: Locator;
-    readonly EmpID!: Locator;
-    readonly EditGender!: Locator;
-    readonly EmpbuttonSave!: Locator;
-    readonly EmpInfoSave!: Locator;
-    readonly listEmployeeName!: Locator;
-    readonly listEmployeeNameSelect!: Locator;
-    readonly listEmpSearchbtn!: Locator;
-    readonly editEmplistbtn!: Locator;
-    readonly successfullyMsg!: Locator;
-    readonly deleteButton!: Locator;
-    readonly deleteYesButton!: Locator;
-    readonly deleteNoButton!: Locator;
     readonly deleteMsg: Locator
 
     constructor(page: Page) {

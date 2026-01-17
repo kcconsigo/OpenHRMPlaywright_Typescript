@@ -18,10 +18,12 @@ export class PIMUserPage {
     readonly listEmpSearchbtn!: Locator;
     readonly editEmplistbtn!: Locator;
     readonly successfullyMsg: Locator
+    readonly nationalityDropdown!: Locator;
+    readonly maritalDropdown!: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.successfullyMsg = page.getByText('SuccessSuccessfully Saved×');
+        this.successfullyMsg = page.getByText('SuccessSuccessfully Saved');
     }
     async PimTab() {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();
@@ -34,14 +36,11 @@ export class PIMUserPage {
         await this.page.locator(pimlocators.EmpMidName).fill(middleName);
         await this.page.locator(pimlocators.EmpLastName).fill(lastName);
         await this.page.locator(pimlocators.EmpID).fill(String(empID));
-        await expect(async () => {
-            await this.page.locator(pimlocators.EmpbuttonSave).click({ timeout: 1000 });
-        }).toPass();
-        // await expect(this.successfullyMsg).toBeVisible();
-        await expect(this.page.getByText('Successfully Saved')).toHaveText('Successfully Saved');
-        await this.page.getByText('-- Select --').first().click();
+        await this.page.locator(pimlocators.EmpbuttonSave).click();
+        await expect(this.successfullyMsg).toBeVisible();
+        await this.page.locator(pimlocators.nationalityDropdown).nth(0).click();
         await this.page.getByRole('option', { name: nationality }).click();
-        await this.page.getByText('-- Select --').first().click();
+        await this.page.locator(pimlocators.maritalDropdown).nth(1).click();
         await this.page.getByRole('option', { name: maritalstatus }).click();
         await this.page.locator(pimlocators.EmpInfoSave).click();
     }

@@ -2,14 +2,25 @@
   "name": "playwrightorangehrm_typescriptversion",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.3"
+    "@cucumber/cucumber": "^12.5.0",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^22.15.3",
+    "ortoni-report": "^2.0.7",
+    "playwright-core": "^1.57.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ts-loader": "^9.5.4"
   }
 }

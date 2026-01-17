@@ -52,7 +52,6 @@ export class PIMDeleteUserPage {
         }
         await this.page.locator(pimlocators.deleteButton).nth(1).click();
         await this.page.locator(pimlocators.deleteYesButton).click();
-        await expect(this.page.getByText('Successfully Deleted')).toHaveText('Successfully Deleted');
-        
+        await expect(this.page.getByText('Successfully Deleted')).toBeVisible();        
     }
 }

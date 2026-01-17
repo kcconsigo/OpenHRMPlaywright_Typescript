@@ -19,5 +19,7 @@ export const pimlocators = {
     deleteDialogBox: "div[role='document']",
     deleteYesButton: "//button[normalize-space()='Yes, Delete']",
     deleteNoButton: "//button[normalize-space()='No, Cancel']",
-    deleteMsg: "//div[@id='oxd-toaster_1']"
+    deleteMsg: "//div[@id='oxd-toaster_1']",
+    nationalityDropdown: ".oxd-select-text-input",
+    maritalDropdown: ".oxd-select-text-input"
 }

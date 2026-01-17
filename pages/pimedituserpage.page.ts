@@ -15,7 +15,9 @@ export class PIMEditUserPage {
     readonly listEmployeeNameSelect!: Locator;
     readonly listEmpSearchbtn!: Locator;
     readonly editEmplistbtn!: Locator;
-    readonly successfullyMsg: Locator
+    readonly successfullyMsg: Locator;
+    readonly nationalityDropdown!: Locator;
+    readonly maritalDropdown!: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -52,15 +54,15 @@ export class PIMEditUserPage {
         await this.page.locator(pimlocators.EmpMidName).fill(editmiddleName);
         await this.page.locator(pimlocators.EmpLastName).fill(editlastName);
         await this.page.locator(pimlocators.EmpID).fill(String(editempID));
-        await this.page.locator('.oxd-select-text').first().click();
+        await this.page.locator(pimlocators.nationalityDropdown).nth(0).click();
         await this.page.getByRole('option', { name: editnationality }).click();
-        await this.page.locator('div:nth-child(2) > .oxd-input-group > div:nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click();
+        await this.page.locator(pimlocators.maritalDropdown).nth(1).click();
         await this.page.getByRole('option', { name: editmaritalstatus }).click();
         await this.page.locator('div').filter({ hasText: /^Employee IdOther Id$/ }).getByRole('textbox').first().fill(String(editempID));
         await this.page.locator('div').filter({ hasText: editgender }).nth(2).click();
         await expect(async () => {
             await this.page.locator(pimlocators.EmpInfoSave).click({ timeout: 1000 });
         }).toPass();
-        await expect(this.page.getByText('Successfully Updated')).toHaveText('Successfully Updated');
+        await expect(this.page.getByText('Successfully Updated')).toBeVisible();
     }
 }

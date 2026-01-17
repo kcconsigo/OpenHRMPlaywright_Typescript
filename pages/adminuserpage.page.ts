@@ -1,8 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { adminlocators } from '../weblocators/adminuserlocators';
 
-
-
 export class AdminUserPage {
   readonly page: Page;
   readonly adminmenu!: Locator;
@@ -29,7 +27,7 @@ export class AdminUserPage {
     this.successfullyMsg = page.getByText('Successfully Saved');
     this.successfullyEditInfoMsg = page.getByText('SuccessSuccessfully Updated');
     this.successfullyDeletedUser = page.getByText('SuccessSuccessfully Deleted');
-    this.NorecordsFound = page.getByText('InfoNo Records Found×');
+    this.NorecordsFound = page.getByText('InfoNo Records Found');
   }
   async AdminTab() {
     await this.page.locator(adminlocators.adminmenu).nth(0).click();
@@ -41,7 +39,6 @@ export class AdminUserPage {
     await this.page.locator(adminlocators.userStatus).nth(1).click();
     await this.userStatusField.click();
   }
-
   async createNewEmployeeInputTextFields(EmpName: string, UserName: string, Password: string, ConfirmPassword: string) {
     await this.page.locator(adminlocators.userEmpName).getByPlaceholder('Type for hints...').fill(EmpName);
     const EmpNameSelectList: Locator = this.page.locator(adminlocators.userEmpNameSelect).getByRole('option', { name: EmpName });
@@ -63,7 +60,6 @@ export class AdminUserPage {
       await expect(this.page.getByText('Successfully Saved')).toHaveText('Successfully Saved');
     }).toPass();
   }
-
   async loadingSpinner() {
     await expect(async () => {
       const webLoadingSpinnerLocator = this.page.locator('.oxd-loading-spinner-container');

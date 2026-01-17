@@ -60,5 +60,12 @@ export class PIMUserPage {
             return i;
         }
         await this.page.locator(pimlocators.listEmpSearchbtn).click();
+        await this.page.mouse.wheel(0, 100);
+        await this.page.mouse.move(20, 40);
+        await this.page.locator('.oxd-table-row > div').first().click();
+        let rowList = await this.page.locator('.oxd-table-body > div.oxd-table-card').all();
+        for (const admin of rowList) {
+            console.log(await admin.textContent());
+        }
     }
 }

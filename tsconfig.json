@@ -1,6 +1,8 @@
 {
     "compilerOptions": {
       "module": "commonjs",
-      "moduleResolution": "node"
+      "moduleResolution": "node",
+      "esModuleInterop": true,         /* Recommended alongside resolveJsonModule */
+      "resolveJsonModule": true,       /* Enables the loading of modules from .json files */
     }
   }

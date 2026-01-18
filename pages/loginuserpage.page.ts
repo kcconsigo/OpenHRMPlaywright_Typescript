@@ -22,7 +22,10 @@ export class LoginUserPage {
         await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
         await expect(this.page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
     }
-    async loginCredentials(username: string, password: string) {
+    async loginCredentials(
+        username: string, 
+        password: string
+    ): Promise<void> {
         await this.userName.fill(username);
         await this.userPassword.fill(password);
     }
@@ -35,7 +38,7 @@ export class LoginUserPage {
     async logoutBtn() {
         await this.logoutButton.click({ timeout: 3000 });
     }
-    async verifyerr_msg() {
-        return await expect(this.error_msg.getByText('Invalid credentials')).toBeVisible();
+    async verifyErrorMessage(): Promise<void> {
+        await expect(this.error_msg.getByText('Invalid credentials')).toBeVisible();
     }
 }

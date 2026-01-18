@@ -16,7 +16,14 @@ export class PIMUserPage {
     async addEmpTab() {
         await this.page.locator(pimlocators.addempTab).nth(2).click();
     }
-    async addEmployeeDetails(firstName: string, middleName: string, lastName: string, empID: number, nationality: string, maritalstatus: string) {
+    async addEmployeeDetails(
+        firstName: string,
+        middleName: string, 
+        lastName: string, 
+        empID: number, 
+        nationality: string, 
+        maritalstatus: string
+    ): Promise<void> {
         await this.page.locator(pimlocators.EmpFirstName).fill(firstName);
         await this.page.locator(pimlocators.EmpMidName).fill(middleName);
         await this.page.locator(pimlocators.EmpLastName).fill(lastName);
@@ -45,8 +52,8 @@ export class PIMUserPage {
             return i;
         }
         await this.page.locator(pimlocators.listEmpSearchbtn).click();
-        await this.page.mouse.wheel(0, 100);
-        await this.page.mouse.move(20, 40);
+        const scrollDown = this.page.locator('#');
+        await scrollDown.scrollIntoViewIfNeeded();
         await this.page.locator('.oxd-table-row > div').first().click();
         let rowList = await this.page.locator('.oxd-table-body > div.oxd-table-card').all();
         for (const admin of rowList) {

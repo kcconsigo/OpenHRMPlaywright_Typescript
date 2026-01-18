@@ -26,15 +26,24 @@ export class PIMEditUserPage {
             return i;
         }
         await this.page.locator(pimlocators.listEmpSearchbtn).click();
-        await this.page.mouse.wheel(0, 100);
-        await this.page.mouse.move(20, 40);
+        const scrollDown = this.page.locator('#');
+        await scrollDown.scrollIntoViewIfNeeded();
+
         await this.page.locator('.oxd-table-row > div').first().click();
         let rowList = await this.page.locator('.oxd-table-body > div.oxd-table-card').all();
         for (const admin of rowList) {
             console.log(await admin.textContent());
         }
     }
-    async addEmployeeDetails(editfirstName: string, editmiddleName: string, editlastName: string, editempID: number, editnationality: string, editmaritalstatus: string, editgender: string) {
+    async addEmployeeDetails(
+        editfirstName: string, 
+        editmiddleName: string, 
+        editlastName: string, 
+        editempID: number, 
+        editnationality: string, 
+        editmaritalstatus: string, 
+        editgender: string
+    ): Promise<void> {
         await this.page.locator(pimlocators.editEmplistbtn).nth(0).click();
         await this.page.locator(pimlocators.EmpFirstName).fill(editfirstName);
         await this.page.locator(pimlocators.EmpMidName).fill(editmiddleName);

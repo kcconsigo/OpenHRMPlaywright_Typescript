@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test"
+    "test": "cucumber-js test",
+    "clean": "rimraf node_modules package-lock.json .next"
   },
   "keywords": [],
   "author": "",
@@ -14,13 +15,17 @@
     "@cucumber/cucumber": "^12.5.0",
     "@playwright/test": "^1.57.0",
     "@types/node": "^22.15.3",
+    "allure-commandline": "^2.36.0",
+    "allure-playwright": "^3.4.5",
     "ortoni-report": "^2.0.7",
     "playwright-core": "^1.57.0",
-    "ts-node": "^10.9.2",
+    "rimraf": "^6.1.2",
+    "ts-node": "^1.7.1",
     "typescript": "^4.9.5"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
+    "sqlite3": "^5.0.2",
     "ts-loader": "^9.5.4"
   }
 }

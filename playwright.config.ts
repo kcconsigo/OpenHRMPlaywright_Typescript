@@ -24,7 +24,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-    reporter: [["line"],["json", { outputFile: 'jsonReports/jsonReport.json' }],
+    reporter: [["html"], ["allure-playwright"],["json", { outputFile: 'jsonReports/jsonReport.json' }],
   ["junit", { outputFile: 'xmlnReports/xmlReport.xml' }],['html', { outputFolder: 'my-report' }], ['dot'], ["ortoni-report",{
     projectname:"Open HRM Web Application",
     AutorName:"Kclyn C.Cabelin",

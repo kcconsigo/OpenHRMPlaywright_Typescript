@@ -1,8 +1,24 @@
 {
     "compilerOptions": {
+      "target": "ES2020",
       "module": "commonjs",
+      "lib": ["ES2020"],
       "moduleResolution": "node",
-      "esModuleInterop": true,         /* Recommended alongside resolveJsonModule */
-      "resolveJsonModule": true,       /* Enables the loading of modules from .json files */
-    }
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "declaration": true,
+      "outDir": "./dist",
+      "allowJs": true,
+      "forceConsistentCasingInFileNames": true
+    },
+    "ts-node": {
+      "transpileOnly": true,
+      "compilerOptions": {
+        "module": "commonjs"
+      }
+    },
+    "include": ["src/**/*", "pages/**/*", "weblocators/**/*", "utils/**/*"],
+    "exclude": ["node_modules", "dist", "allure-results", "playwright-report"]
   }

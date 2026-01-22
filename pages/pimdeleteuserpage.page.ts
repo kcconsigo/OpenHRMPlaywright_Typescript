@@ -23,7 +23,6 @@ export class PIMDeleteUserPage {
         const empname = Empnames.nth(i);
         if (await empname.isVisible()) {
             await empname.nth(i).click();
-            // await expect(empname).toContainText(editfirstName);
             break;
         }
     }

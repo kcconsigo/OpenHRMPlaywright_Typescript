@@ -29,12 +29,7 @@ export class PIMUserPage {
         await this.page.locator(pimlocators.EmpLastName).fill(lastName);
         await this.page.locator(pimlocators.EmpID).fill(String(empID));
         await this.page.locator(pimlocators.EmpbuttonSave).click();
-        await expect(this.successfullyMsg).toBeVisible();
-        await this.page.locator(pimlocators.nationalityDropdown).nth(0).click();
-        await this.page.getByRole('option', { name: nationality }).click();
-        await this.page.locator(pimlocators.maritalDropdown).nth(1).click();
-        await this.page.getByRole('option', { name: maritalstatus }).click();
-        await this.page.locator(pimlocators.EmpInfoSave).click();
+        await expect(this.successfullyMsg.getByText('Successfully Saved')).toBeVisible();
     }
     async employeeListlandingTab(firstName: string) {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();

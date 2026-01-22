@@ -13,6 +13,7 @@ Feature: Verify PIM User can be added successfully
       | firstName | middleName | lastName     | empID | nationality | maritalstatus |
       | user1     | pass1      | successful   |       |             |               |
       | user2     | pass2      | unsuccessful |       |             |               |
+    When I click Save Button to save the details
     Then Employee details should be added as "<status>" message
     Examples:
       | status |

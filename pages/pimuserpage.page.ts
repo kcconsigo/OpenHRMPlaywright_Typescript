@@ -8,7 +8,7 @@ export class PIMUserPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.successfullyMsg = page.getByText('SuccessSuccessfully Saved');
+        this.successfullyMsg = page.getByText('Successfully Saved');
     }
     async PimTab() {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();
@@ -39,21 +39,22 @@ export class PIMUserPage {
     async employeeListlandingTab(firstName: string) {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();
         await this.page.locator(pimlocators.listEmpNavTab).nth(1).click();
-        await this.page.locator(pimlocators.listEmployeeName).getByPlaceholder('Type for hints...')
+        await this.page.locator(pimlocators.listEmployeeName).nth(0).getByPlaceholder('Type for hints...')
             .nth(0)
             .fill(firstName);
         const Empnames: Locator = this.page.locator(pimlocators.listEmployeeNameSelect).getByRole('option', { name: firstName });
         await Empnames.waitFor({ state: 'visible' });
+
         for (let i = 0; i < await Empnames.count(); i++) {
-            if (await Empnames.isVisible()) {
-                await Empnames.nth(i).click();
-                return Empnames;
+            const empname = Empnames.nth(i);
+            if (await empname.isVisible()) {
+            await empname.nth(i).click();
+            break;
             }
-            return i;
         }
         await this.page.locator(pimlocators.listEmpSearchbtn).click();
-        const scrollDown = this.page.locator('#');
-        await scrollDown.scrollIntoViewIfNeeded();
+        await this.page.mouse.wheel(0, 100);
+        await this.page.mouse.move(20, 40);
         await this.page.locator('.oxd-table-row > div').first().click();
         let rowList = await this.page.locator('.oxd-table-body > div.oxd-table-card').all();
         for (const admin of rowList) {

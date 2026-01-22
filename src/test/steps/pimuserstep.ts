@@ -15,6 +15,11 @@ When('I type Employee Details in EmpFirstName as {string} EmpMidName {string} Em
            return 'pending';
          });
 
+When('I click Save Button to save the details', async function () {
+           // Write code here that turns the phrase above into concrete actions
+           return 'pending';
+         });
+
 Then('Employee details should be added as {string} message', async function (string) {
            // Write code here that turns the phrase above into concrete actions
            return 'pending';

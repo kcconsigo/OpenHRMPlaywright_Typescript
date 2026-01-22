@@ -58,5 +58,4 @@ export class AdminEditUserPage {
             console.log(await admin.textContent());
         }
   }
-
 }

@@ -1,7 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { pimlocators } from "../weblocators/pimuserlocators";
 
-
 export class PIMUserPage {
     readonly page: Page;
     readonly successfullyMsg: Locator
@@ -20,9 +19,7 @@ export class PIMUserPage {
         firstName: string,
         middleName: string, 
         lastName: string, 
-        empID: number, 
-        nationality: string, 
-        maritalstatus: string
+        empID: number
     ): Promise<void> {
         await this.page.locator(pimlocators.EmpFirstName).fill(firstName);
         await this.page.locator(pimlocators.EmpMidName).fill(middleName);

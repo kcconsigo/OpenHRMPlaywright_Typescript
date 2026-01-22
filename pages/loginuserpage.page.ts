@@ -33,10 +33,10 @@ export class LoginUserPage {
         await this.loginButton.click();
     }
     async logoutItemBtn() {
-        await this.logoutItem.click({ timeout: 3000 });
+        await this.logoutItem.click();
     }
     async logoutBtn() {
-        await this.logoutButton.click({ timeout: 3000 });
+        await this.logoutButton.click();
     }
     async verifyErrorMessage(): Promise<void> {
         await expect(this.error_msg.getByText('Invalid credentials')).toBeVisible();

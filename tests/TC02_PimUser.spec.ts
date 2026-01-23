@@ -5,7 +5,7 @@ import credentials from '../utils/credentials.json';
 import pimdetails from '../utils/pimuser.json';
 
 for (const pimdetailspage of pimdetails) {
-  test(`Admin should allow to create Pim Employees ${credentials.validCredentials.username},${credentials.validCredentials.password}, ${pimdetailspage.firstName}, ${pimdetailspage.middleName}, ${pimdetailspage.lastName}, ${pimdetailspage.empID},${pimdetailspage.nationality[2]}, ${pimdetailspage.maritalstatus[1]},`,{tag: '@SmokeTesting'}, async ({ page }) => {
+  test(`Admin should allow to create Pim Employees ${credentials.validCredentials.username},${credentials.validCredentials.password}, ${pimdetailspage.firstName}, ${pimdetailspage.middleName}, ${pimdetailspage.lastName}, ${pimdetailspage.empID},`,{tag: '@SmokeTesting'}, async ({ page }) => {
     const loginuserpage = new LoginUserPage(page);
     await loginuserpage.gotoLogin();
     await loginuserpage.loginCredentials(credentials.validCredentials.username, credentials.validCredentials.password);
@@ -14,7 +14,7 @@ for (const pimdetailspage of pimdetails) {
     const pimuserpage = new PIMUserPage(page);
     await pimuserpage.PimTab();
     await pimuserpage.addEmpTab();
-    await pimuserpage.addEmployeeDetails(pimdetailspage.firstName, pimdetailspage.middleName, pimdetailspage.lastName, pimdetailspage.empID, pimdetailspage.nationality[2], pimdetailspage.maritalstatus[1]);
+    await pimuserpage.addEmployeeDetails(pimdetailspage.firstName, pimdetailspage.middleName, pimdetailspage.lastName, pimdetailspage.empID);
     await pimuserpage.employeeListlandingTab(pimdetailspage.firstName);
     await loginuserpage.logoutItemBtn();
     await loginuserpage.logoutBtn();

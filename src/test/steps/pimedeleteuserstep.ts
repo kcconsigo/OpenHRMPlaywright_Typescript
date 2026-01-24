@@ -10,7 +10,7 @@ When('I select Employeelist Tab', async function () {
            return 'pending';
          });
 
-When('I type Employee Details in EmpFirstName as {string} in the search box', async function (string) {
+When('I type Employee Details in EmpFirstName as {string} EmpMidName {string} EmpLastName {string} in the search box', async function (string, string2, string3, dataTable) {
            // Write code here that turns the phrase above into concrete actions
            return 'pending';
          });

@@ -1,14 +1,51 @@
 [
   {
-    "firstName": "Robert James",
-    "middleName": "Chen",
-    "lastName": "Schneider",
-    "empID": 1207
+    "firstName": "James",
+    "middleName": "Xavier",
+    "lastName": "McAvoy",
+    "empID": 1207,
+    "username": "James Xavier McAvoy"
   },
   {
-    "firstName": "Ronaldo",
-    "middleName": "Valdez",
-    "lastName": "Gibbs",
-    "empID": 2402
+    "firstName": "Michael",
+    "middleName": "Lehnsherr",
+    "lastName": "Fassbender",
+    "empID": 2402,
+    "username": "Michael Lehnsherr Fassbender"
+  },
+  {
+    "firstName": "Jean",
+    "middleName": "Grey",
+    "lastName": "Lawrence",
+    "empID": 3501,
+    "username": "Jean Grey Lawrence"
+  },
+  {
+    "firstName": "Hank",
+    "middleName": "McCoy",
+    "lastName": "Nicholson",
+    "empID": 4503,
+    "username": "Hank McCoy Nicholson"
+  },
+  {
+    "firstName": "Raven",
+    "middleName": "Darkholme",
+    "lastName": "Johansson",
+    "empID": 5604,
+    "username": "Raven Darkholme Johansson"
+  },
+  {
+    "firstName": "Ororo",
+    "middleName": "Munroe",
+    "lastName": "Ali",
+    "empID": 6705,
+    "username": "Ororo Munroe Ali"
+  },
+  {
+    "firstName": "Scott",
+    "middleName": "Summers",
+    "lastName": "Holland",
+    "empID": 7806,
+    "username": "Scott Summers Holland"
   }
 ]

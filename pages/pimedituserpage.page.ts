@@ -1,9 +1,9 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { pimlocators } from "../weblocators/pimuserlocators";
+
 export class PIMEditUserPage {
     readonly page: Page;
     readonly successfullyMsg: Locator;
-
 
     constructor(page: Page) {
         this.page = page;

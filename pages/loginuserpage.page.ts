@@ -33,7 +33,7 @@ export class LoginUserPage {
         await this.loginButton.click();
     }
     async logoutItemBtn() {
-        await this.logoutItem.click();
+        await this.logoutItem.click({ timeout: 10000 });
     }
     async logoutBtn() {
         await this.logoutButton.click();

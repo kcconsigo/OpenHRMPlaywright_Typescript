@@ -42,13 +42,14 @@ export class AdminUserPage {
   async createNewEmployeeInputTextFields(EmpName: string, UserName: string, Password: string, ConfirmPassword: string) {
     await this.page.locator(adminlocators.userEmpName).getByPlaceholder('Type for hints...').fill(EmpName);
     const EmpNameSelectList: Locator = this.page.locator(adminlocators.userEmpNameSelect).getByRole('option', { name: EmpName });
-    for (let i = 0; i < await EmpNameSelectList.count(); ++i) {
-      if (await EmpNameSelectList.isVisible()) {
-        await EmpNameSelectList.nth(i).click();
-        return EmpNameSelectList;
-      }
-      return i;
-    }
+     for (let i = 0; i < await EmpNameSelectList.count(); i++) {
+        const empnameselectlist = EmpNameSelectList.nth(i);
+        if (await empnameselectlist.isVisible()) {
+        await empnameselectlist.nth(i).click();
+        break;
+            }
+        }
+
     await this.page.locator(adminlocators.userEmpNameSelect).getByRole('option', { name: EmpName }).click()
     await this.page.locator(adminlocators.username).nth(1).fill(UserName);
     await this.page.locator(adminlocators.password).nth(2).fill(Password);

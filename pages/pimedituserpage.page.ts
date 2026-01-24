@@ -18,7 +18,6 @@ export class PIMEditUserPage {
             .fill(editfirstName);
         const Empnames: Locator = this.page.locator(pimlocators.listEmployeeNameSelect).getByRole('option', { name: editfirstName });
         await Empnames.waitFor({ state: 'visible' });
-
         for (let i = 0; i < await Empnames.count(); i++) {
             const empname = Empnames.nth(i);
             if (await empname.isVisible()) {
@@ -36,14 +35,15 @@ export class PIMEditUserPage {
             console.log(await admin.textContent());
         }
     }
-    async addEmployeeDetails(
+    async updatePersonalDetails(
         editfirstName: string, 
         editmiddleName: string, 
         editlastName: string, 
         editempID: number, 
         editnationality: string, 
         editmaritalstatus: string, 
-        editgender: string
+        editgender: string,
+        editdob: string
     ): Promise<void> {
         await this.page.locator(pimlocators.editEmplistbtn).nth(0).click();
         await this.page.locator(pimlocators.EmpFirstName).fill(editfirstName);
@@ -54,11 +54,15 @@ export class PIMEditUserPage {
         await this.page.getByRole('option', { name: editnationality }).click();
         await this.page.locator(pimlocators.maritalDropdown).nth(1).click();
         await this.page.getByRole('option', { name: editmaritalstatus }).click();
-        await this.page.locator('div').filter({ hasText: /^Employee IdOther Id$/ }).getByRole('textbox').first().fill(String(editempID));
-        await this.page.locator('div').filter({ hasText: editgender }).nth(2).click();
+        await this.page.locator('label').filter({ hasText: editgender }).nth(0).click();
+        await this.page.getByPlaceholder('yyyy-dd-mm', { exact: true }).nth(1).fill(editdob);
         await expect(async () => {
             await this.page.locator(pimlocators.EmpInfoSave).click({ timeout: 1000 });
         }).toPass();
         await expect(this.page.getByText('Successfully Updated')).toBeVisible();
+        await expect(async () => {
+            const webLoadingSpinnerLocator = this.page.locator('.oxd-loading-spinner-container');
+            await webLoadingSpinnerLocator.waitFor({ state: 'hidden', timeout: 60000 });
+            }).toPass();
     }
 }

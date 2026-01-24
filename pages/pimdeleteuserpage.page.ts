@@ -36,6 +36,10 @@ export class PIMDeleteUserPage {
         }
         await this.page.locator(pimlocators.deleteButton).nth(1).click();
         await this.page.locator(pimlocators.deleteYesButton).click();
-        await expect(this.page.getByText('Successfully Deleted')).toBeVisible();        
+        await expect(this.page.getByText('Successfully Deleted')).toBeVisible(); 
+        await expect(async () => {
+            const webLoadingSpinnerLocator = this.page.locator('.oxd-loading-spinner-container');
+            await webLoadingSpinnerLocator.waitFor({ state: 'hidden', timeout: 60000 });
+            }).toPass()       
     }
 }

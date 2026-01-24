@@ -15,7 +15,7 @@ test(`Admin should allow to edit pim users details ${editpimdettails.editfirstNa
     const pimedituserpage = new PIMEditUserPage(page);
     await pimedituserpage.editPimTab();
     await pimedituserpage.employeeListlandingTab(editpimdettails.editfirstName);
-    await pimedituserpage.addEmployeeDetails(editpimdettails.editfirstName, editpimdettails.editmiddleName, editpimdettails.editlastName, editpimdettails.editempID, editpimdettails.editnationality[1], editpimdettails.editmaritalstatus[0],editpimdettails.editgender[0]);
+    await pimedituserpage.updatePersonalDetails(editpimdettails.editfirstName, editpimdettails.editmiddleName, editpimdettails.editlastName, editpimdettails.editempID, editpimdettails.editnationality[1], editpimdettails.editmaritalstatus[0],editpimdettails.editgender[0],editpimdettails.editdob[0]);
     await loginuserpage.logoutItemBtn();
     await loginuserpage.logoutBtn();
 });

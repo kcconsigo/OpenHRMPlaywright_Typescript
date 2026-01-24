@@ -27,6 +27,10 @@ export class PIMUserPage {
         await this.page.locator(pimlocators.EmpID).fill(String(empID));
         await this.page.locator(pimlocators.EmpbuttonSave).click();
         await expect(this.successfullyMsg.getByText('Successfully Saved')).toBeVisible();
+        await expect(async () => {
+            const webLoadingSpinnerLocator = this.page.locator('.oxd-loading-spinner-container');
+            await webLoadingSpinnerLocator.waitFor({ state: 'hidden', timeout: 60000 });
+            }).toPass();
     }
     async employeeListlandingTab(firstName: string) {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();

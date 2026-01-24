@@ -16,7 +16,10 @@
         "editgender": [
             "Male",
             "Female"
-        ]
+        ],
+        "editdob": [
+            "1990-11-08"
+        ] 
     },
     {
         "editfirstName": "Ronaldo",
@@ -35,6 +38,9 @@
         "editgender": [
             "Male",
             "Female"
-        ]
+        ],
+        "editdob": [
+            "1990-17-05"
+        ] 
     }
 ]

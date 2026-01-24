@@ -5,12 +5,12 @@ Given('I am on the Pim tab', async function () {
            return 'pending';
          });
 
- When('I select Employeelist Tab', async function () {
+When('I select Employeelist Tab', async function () {
            // Write code here that turns the phrase above into concrete actions
            return 'pending';
          });
 
-When('I type Employee Details in EmpFirstName as {string} in the search box', async function (string) {
+When('I type Employee Details in EmpFirstName as {string} EmpMidName {string} EmpLastName {string} in the search box', async function (string, string2, string3, dataTable) {
            // Write code here that turns the phrase above into concrete actions
            return 'pending';
          });
@@ -30,7 +30,7 @@ When('I click the Edit button corresponding to the employee', async function () 
            return 'pending';
          });
 
-When('I type Employee Details in EmpFirstName as {string} EmpMidName {string} EmpLastName {string} EmpID {string} nationality {string} maritalstatus {string} editgender {string}', async function (string, string2, string3, string4, string5, string6, string7, dataTable) {
+When('I type Employee Details in EmpFirstName as {string} EmpMidName {string} EmpLastName {string} EmpID {string} nationality {string} maritalstatus {string} editgender {string} Dob {string}', async function (string, string2, string3, string4, string5, string6, string7, string8, dataTable) {
            // Write code here that turns the phrase above into concrete actions
            return 'pending';
          });

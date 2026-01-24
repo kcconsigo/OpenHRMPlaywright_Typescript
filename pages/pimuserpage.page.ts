@@ -32,13 +32,13 @@ export class PIMUserPage {
             await webLoadingSpinnerLocator.waitFor({ state: 'hidden', timeout: 60000 });
             }).toPass();
     }
-    async employeeListlandingTab(firstName: string) {
+    async employeeListlandingTab(username: string): Promise<void> {
         await this.page.locator(pimlocators.pimmenu).nth(1).click();
         await this.page.locator(pimlocators.listEmpNavTab).nth(1).click();
         await this.page.locator(pimlocators.listEmployeeName).nth(0).getByPlaceholder('Type for hints...')
             .nth(0)
-            .fill(firstName);
-        const Empnames: Locator = this.page.locator(pimlocators.listEmployeeNameSelect).getByRole('option', { name: firstName });
+            .fill(username);
+        const Empnames: Locator = this.page.locator(pimlocators.listEmployeeNameSelect).getByRole('option', { name: username });
         await Empnames.waitFor({ state: 'visible' });
 
         for (let i = 0; i < await Empnames.count(); i++) {

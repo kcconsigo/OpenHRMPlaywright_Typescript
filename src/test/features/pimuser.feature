@@ -9,7 +9,6 @@ Feature: Verify PIM User can be added successfully
     Given I am on the Pim tab
     When I select Add Employee Tab
     And I type Employee Details in EmpFirstName as "<firstName>" EmpMidName "<middleName>" EmpLastName "<lastName>" EmpID "<empID>"
-
       | firstName | middleName | lastName     | empID | nationality | maritalstatus |
       | user1     | pass1      | successful   |       |             |               |
       | user2     | pass2      | unsuccessful |       |             |               |

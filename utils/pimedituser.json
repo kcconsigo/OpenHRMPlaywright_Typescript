@@ -1,9 +1,10 @@
 [
     {
-        "editfirstName": "Robert James",
-        "editmiddleName": "Chen",
-        "editlastName": "Schneider",
-        "editempID": 1102,
+        "editfirstName": "James",
+        "editmiddleName": "X",
+        "editlastName": "McAvoy",
+        "editempID": 2212,
+        "editusername": "James Xavier McAvoy",
         "editnationality": [
             "Australian",
             "German",
@@ -22,10 +23,11 @@
         ] 
     },
     {
-        "editfirstName": "Ronaldo",
-        "editmiddleName": "Valdez",
-        "editlastName": "Gibbs",
-        "editempID": 2442,
+        "editfirstName": "Michael",
+        "editmiddleName": "L",
+        "editlastName": "Fassbender",
+        "editempID": 7402,
+        "editusername": "Michael Lehnsherr Fassbender",
         "editnationality": [
             "Australian",
             "German",
@@ -41,6 +43,121 @@
         ],
         "editdob": [
             "1990-17-05"
+        ] 
+    },
+    {
+        "editfirstName": "Jean",
+        "editmiddleName": "G",
+        "editlastName": "Lawrence",
+        "editempID": 4501,
+        "editusername": "Jean Grey Lawrence",
+        "editnationality": [
+            "Australian",
+            "German",
+            "Filipino"
+        ],
+        "editmaritalstatus": [
+            "Single",
+            "Married"
+        ],
+        "editgender": [
+            "Male",
+            "Female"
+        ],
+        "editdob": [
+            "1990-11-08"
+        ] 
+    },
+        {
+        "editfirstName": "Hank",
+        "editmiddleName": "M",
+        "editlastName": "Nicholson",
+        "editempID": 3203,
+        "editusername": "Hank McCoy Nicholson",
+        "editnationality": [
+            "Australian",
+            "German",
+            "Filipino"
+        ],
+        "editmaritalstatus": [
+            "Single",
+            "Married"
+        ],
+        "editgender": [
+            "Male",
+            "Female"
+        ],
+        "editdob": [
+            "1990-11-08"
+        ] 
+    },
+        {
+        "editfirstName": "Raven",
+        "editmiddleName": "D",
+        "editlastName": "Johansson",
+        "editempID": 5624,
+        "editusername": "Raven Darkholme Johansson",
+        "editnationality": [
+            "Australian",
+            "German",
+            "Filipino"
+        ],
+        "editmaritalstatus": [
+            "Single",
+            "Married"
+        ],
+        "editgender": [
+            "Male",
+            "Female"
+        ],
+        "editdob": [
+            "1990-11-08"
+        ] 
+    },
+        {
+        "editfirstName": "Ororo",
+        "editmiddleName": "M",
+        "editlastName": "Ali",
+        "editempID": 6605,
+        "editusername": "Ororo Munroe Ali",
+        "editnationality": [
+            "Australian",
+            "German",
+            "Filipino"
+        ],
+        "editmaritalstatus": [
+            "Single",
+            "Married"
+        ],
+        "editgender": [
+            "Male",
+            "Female"
+        ],
+        "editdob": [
+            "1990-11-08"
+        ] 
+    },
+        {
+        "editfirstName": "Scott",
+        "editmiddleName": "S",
+        "editlastName": "Holland",
+        "editempID": 7804,
+        "editusername": "Scott Summers Holland",
+        "editnationality": [
+            "Australian",
+            "German",
+            "Filipino"
+        ],
+        "editmaritalstatus": [
+            "Single",
+            "Married"
+        ],
+        "editgender": [
+            "Male",
+            "Female"
+        ],
+        "editdob": [
+            "1990-11-08"
         ] 
     }
 ]

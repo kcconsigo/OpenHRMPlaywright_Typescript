@@ -9,6 +9,7 @@ export const pimlocators = {
     EditGender: "input[type=radio]:nth-child(1):nth-child(1)",
     EmpbuttonSave: "//button[@type='submit']",
     EmpInfoSave: "(//button[@type='submit'][normalize-space()='Save'])[1]",
+    EmpImageUpload: "oxd-icon-button oxd-icon-button--solid-main employee-image-action",
     listEmpNavTab: ".oxd-topbar-body-nav-tab",
     listEmployeeName: ".oxd-autocomplete-text-input",
     listEmployeeNameSelect: ".oxd-autocomplete-dropdown",

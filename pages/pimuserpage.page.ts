@@ -15,6 +15,13 @@ export class PIMUserPage {
     async addEmpTab() {
         await this.page.locator(pimlocators.addempTab).nth(2).click();
     }
+    async uploadEmployeeImage(): Promise<void> {
+        const [fileChooser] = await Promise.all([
+            this.page.waitForEvent('filechooser'),
+            await this.page.locator(pimlocators.EmpImageUpload).click()  
+        ]);
+        await fileChooser.setFiles("imagePath");
+    }    
     async addEmployeeDetails(
         firstName: string,
         middleName: string, 
@@ -25,8 +32,11 @@ export class PIMUserPage {
         await this.page.locator(pimlocators.EmpMidName).fill(middleName);
         await this.page.locator(pimlocators.EmpLastName).fill(lastName);
         await this.page.locator(pimlocators.EmpID).fill(String(empID));
+    }
+    async clickSaveButton(): Promise<void> {
         await this.page.locator(pimlocators.EmpbuttonSave).click();
         await expect(this.successfullyMsg.getByText('Successfully Saved')).toBeVisible();
+
         await expect(async () => {
             const webLoadingSpinnerLocator = this.page.locator('.oxd-loading-spinner-container');
             await webLoadingSpinnerLocator.waitFor({ state: 'hidden', timeout: 60000 });
@@ -48,7 +58,11 @@ export class PIMUserPage {
             break;
             }
         }
+    }
+    async searchButtonClick(): Promise<void> {
         await this.page.locator(pimlocators.listEmpSearchbtn).click();
+    }
+    async clickCheckboxButton(): Promise<void> {
         await this.page.mouse.wheel(0, 100);
         await this.page.mouse.move(20, 40);
         await this.page.locator('.oxd-table-row > div').first().click();

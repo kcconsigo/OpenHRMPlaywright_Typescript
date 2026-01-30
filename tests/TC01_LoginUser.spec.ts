@@ -20,4 +20,18 @@ test(`should not allow me to enter invalid credentials ${credentials.invalidCred
   await loginuserpage.loginBtn();
   await loginuserpage.verifyErrorMessage();
 });
+test(`should not allow me to login with empty username ${credentials.emptyUsername.username}, ${credentials.emptyUsername.password}`,{tag: '@RegressionTesting'}, async ({ page }) => {
+  const loginuserpage = new LoginUserPage(page);
+  await loginuserpage.gotoLogin();
+  await loginuserpage.loginCredentials(credentials.emptyUsername.username, credentials.emptyUsername.password);
+  await loginuserpage.loginBtn();
+  await loginuserpage.verifyErrorGroupMessage();
+});
+test(`should not allow me to login with empty password ${credentials.emptyPassword.username}, ${credentials.emptyPassword.password}`,{tag: '@RegressionTesting'}, async ({ page }) => {
+  const loginuserpage = new LoginUserPage(page);
+  await loginuserpage.gotoLogin();
+  await loginuserpage.loginCredentials(credentials.emptyPassword.username, credentials.emptyPassword.password);
+  await loginuserpage.loginBtn();
+  await loginuserpage.verifyErrorGroupMessage();
+}); 
 export { expect } from '@playwright/test';

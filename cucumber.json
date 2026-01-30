@@ -3,9 +3,9 @@
         "formatOptions":{
             "snippetInterface": "async-await"
         },
-        "paths": ["src/test/features"],
+        "paths": ["src/test/features/loginuser.feature"],
         "require": ["src/test/steps/*.ts"],
         "requireModule": ["ts-node/register"],
-        "dryRun": true
+        "dryRun": false
     }
 }

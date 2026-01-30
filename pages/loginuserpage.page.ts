@@ -8,6 +8,7 @@ export class LoginUserPage {
     public readonly logoutItem: Locator;
     public readonly logoutButton: Locator;
     public readonly error_msg: Locator;
+    public readonly error_group_msg: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -17,10 +18,11 @@ export class LoginUserPage {
         this.logoutItem = page.locator('.oxd-userdropdown');
         this.logoutButton = page.getByRole('menuitem', { name: 'Logout' });
         this.error_msg = page.getByRole('alert').locator('div').filter({ hasText: 'Invalid credentials' });
+        this.error_group_msg = page.locator('span').filter({ hasText: 'Required' })
     }
-    async gotoLogin() {
-        await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-        await expect(this.page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+    async gotoLogin() : Promise<void>{
+        await this.page.goto(process.env.WEB_URL_QA || 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+        await expect(this.page).toHaveURL(process.env.WEB_URL_QA || 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
     }
     async loginCredentials(
         username: string, 
@@ -29,16 +31,23 @@ export class LoginUserPage {
         await this.userName.fill(username);
         await this.userPassword.fill(password);
     }
-    async loginBtn() {
+    async loginBtn(): Promise<void> {
         await this.loginButton.click();
     }
-    async logoutItemBtn() {
+    async logoutItemBtn() : Promise<void>{
         await this.logoutItem.click({ timeout: 10000 });
     }
-    async logoutBtn() {
+    async logoutBtn() : Promise<void>{
         await this.logoutButton.click();
     }
-    async verifyErrorMessage(): Promise<void> {
-        await expect(this.error_msg.getByText('Invalid credentials')).toBeVisible();
+    async verifyErrorMessage(): Promise<string> {
+        const errorMessage = await this.error_msg.getByText('Invalid credentials');
+        await expect(errorMessage).toBeVisible();
+        return await errorMessage.textContent() || '';
+    }
+    async verifyErrorGroupMessage(): Promise<string> {
+        const errorGroupMessage = await this.error_group_msg.getByText('Required');
+        await expect(errorGroupMessage).toBeVisible();
+        return await errorGroupMessage.textContent() || '';
     }
 }

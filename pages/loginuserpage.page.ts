@@ -8,7 +8,8 @@ export class LoginUserPage {
     public readonly logoutItem: Locator;
     public readonly logoutButton: Locator;
     public readonly error_msg: Locator;
-    public readonly error_group_msg: Locator;
+    public readonly error_group_msg1: Locator;
+    public readonly error_group_msg2: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -18,7 +19,8 @@ export class LoginUserPage {
         this.logoutItem = page.locator('.oxd-userdropdown');
         this.logoutButton = page.getByRole('menuitem', { name: 'Logout' });
         this.error_msg = page.getByRole('alert').locator('div').filter({ hasText: 'Invalid credentials' });
-        this.error_group_msg = page.locator('span').filter({ hasText: 'Required' })
+        this.error_group_msg1 = page.locator('.oxd-input-group__message').filter({ hasText: 'Required' }).first();
+        this.error_group_msg2 = page.locator('.oxd-input-group__message').filter({ hasText: 'Required' }).last();
     }
     async gotoLogin() : Promise<void>{
         await this.page.goto(process.env.WEB_URL_QA || 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
@@ -41,12 +43,17 @@ export class LoginUserPage {
         await this.logoutButton.click();
     }
     async verifyErrorMessage(): Promise<string> {
-        const errorMessage = await this.error_msg.getByText('Invalid credentials');
+        const errorMessage = this.error_msg.getByText('Invalid credentials');
         await expect(errorMessage).toBeVisible();
         return await errorMessage.textContent() || '';
     }
     async verifyErrorGroupMessage(): Promise<string> {
-        const errorGroupMessage = await this.error_group_msg.getByText('Required');
+        const errorGroupMessage = this.error_group_msg1.getByText('Required', { exact: true });
+        await expect(errorGroupMessage).toBeVisible();
+        return await errorGroupMessage.textContent() || '';
+    }
+    async verifyErrorGroupMessage2(): Promise<string> {
+        const errorGroupMessage = this.error_group_msg2.getByText('Required', { exact: true });
         await expect(errorGroupMessage).toBeVisible();
         return await errorGroupMessage.textContent() || '';
     }

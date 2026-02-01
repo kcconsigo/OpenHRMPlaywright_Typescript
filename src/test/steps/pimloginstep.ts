@@ -26,6 +26,9 @@ When('I enter my {string} and {string} empty fields', async function ( username:
 password: string ) {
     await this.loginuserpage.loginCredentials(username, password);
          });
+When('I enter my {string} and {string} for both empty fields', async function (username: string, password: string) {
+           await this.loginuserpage.loginCredentials(username, password);
+         });
 When('I click the Login button', { timeout: 30 * 5000 }, async function () {
     await this.loginuserpage.loginBtn();
          });    
@@ -37,21 +40,25 @@ Then('I should be logged in', { timeout: 30 * 5000 }, async function () {
     await browser.close();
          });
 Then('I should not be login and see {string} error message for invalid credentials', { timeout: 30 * 5000 }, async function (expectedMessage: string) {
-
     const actualErrorMessage = await this.loginuserpage.verifyErrorMessage();
     if (actualErrorMessage !== expectedMessage) {
         throw new Error(`Expected error message: ${expectedMessage}, but got: ${actualErrorMessage}`);
     }
     await browser.close();
-
     });
 
 Then('I should not be login and see {string} error message for empty fields', { timeout: 30 * 5000 }, async function (expectedMessage: string) {
-
     const actualErrorGroupMessage = await this.loginuserpage.verifyErrorGroupMessage();
     if (actualErrorGroupMessage !== expectedMessage) {
         throw new Error(`Expected error group message: ${expectedMessage}, but got: ${actualErrorGroupMessage}`);
     }
     await browser.close();
-
     });        
+
+Then('I should not be login and see {string} error message for both empty fields', { timeout: 30 * 5000 }, async function (expectedMessage: string) {
+    const actualErrorGroupMessage2 = await this.loginuserpage.verifyErrorGroupMessage2();
+    if (actualErrorGroupMessage2 !== expectedMessage) {
+        throw new Error(`Expected error group message: ${expectedMessage}, but got: ${actualErrorGroupMessage2}`);
+    }   
+    await browser.close();
+    });  

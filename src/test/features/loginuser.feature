@@ -37,3 +37,15 @@ Background:
       | usernameEmpty | passwordEmpty |
       |               | admin123      |
       | Admin         |               |
+
+    @EmptyFieldsLogin
+  Scenario Outline: User logins in Page using empty fields
+    Given I am on the login page using credentials
+    When I enter my "<usernameEmpty>" and "<passwordEmpty>" for both empty fields
+    And I click the Login button
+    Then I should not be login and see "Required" error message for both empty fields
+
+    Examples:
+      | usernameEmpty | passwordEmpty |
+      |               |               |
+      |               |               |
